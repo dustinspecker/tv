@@ -22,7 +22,7 @@ The show names, season names, and episode names are arbitrary for now. TV just e
 1. Build Client
 1. Run Server
 
-### Build Client
+## Build Client
 
 1. `cd client`
 1. `npm -g webpack-cli`
