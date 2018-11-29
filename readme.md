@@ -26,12 +26,14 @@
 
 1. `cd client`
 1. `npm i -g webpack-cli`
+1. `npm i`
 1. `webpack-cli`
 
 ## Run Server
 
 1. `cd server`
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
+1. `npm i`
 1. `node index.js`
 1. Take note of the address logged by Server
 
