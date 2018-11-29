@@ -25,7 +25,7 @@
 ## Build Client
 
 1. `cd client`
-1. `npm -g webpack-cli`
+1. `npm i -g webpack-cli`
 1. `webpack-cli`
 
 ## Run Server
