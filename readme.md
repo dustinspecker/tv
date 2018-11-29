@@ -43,7 +43,7 @@
 
 ## Supported Media Types
 
-1. mp4
+TV uses the Default Media Receiver and its supported media types can be read at [Supported Media for Google Cast](https://developers.google.com/cast/docs/media#media_container_formats).
 
 ## LICENSE
 MIT © [Dustin Specker](https://github.com/dustinspecker)
