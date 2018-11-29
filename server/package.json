@@ -1,0 +1,26 @@
+{
+  "name": "tv-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinspecker/tv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dustinspecker/tv/issues"
+  },
+  "homepage": "https://github.com/dustinspecker/tv#readme",
+  "dependencies": {
+    "fastify": "^1.12.1",
+    "fastify-cors": "^0.2.0",
+    "fastify-static": "^0.14.0",
+    "ip": "^1.1.5"
+  }
+}
