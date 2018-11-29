@@ -4,7 +4,7 @@
 
 **This is a work in progress. I do not recommend using this.**
 
-To use TV:
+## Prerequisites
 
 1. Register any Chromecast compatible device - this is required because this is simply using the default Chromecast receiver app
 1. TV only plays media given the following directory structure:
