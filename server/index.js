@@ -14,11 +14,12 @@ fastify.register(require('fastify-cors'))
 
 fastify.register(require('fastify-static'),
   {
-    root: path.join(__dirname, 'public')
+    root: path.join(__dirname, 'public', 'assets'),
+    prefix: '/assets/'
   }
 )
 
-fastify.get('/show/*', (request, reply) => {
+fastify.get('/*', (request, reply) => {
   reply
     .header('Content-Type', 'text/html')
     .send(fs.readFileSync(path.join(__dirname, 'public', 'index.html')))
