@@ -8,16 +8,16 @@
 
 1. Register any Chromecast compatible device - this is required because this is simply using the default Chromecast receiver app
 1. TV only plays media given the following directory structure:
-```
-media/
-├── show one/
-│   ├── season 1
-│   │   ├── episode 1
-│   │   └── episode 2
-│   └── season 2
-└── show two/
-```
-The show names, season names, and episode names are arbitrary for now. TV just expects to see a media directory containing directories of TV shows. Those TV show directories should contain season directories. Those season directory should contain episode videos.
+    ```
+    media/
+    ├── show one/
+    │   ├── season 1
+    │   │   ├── episode 1
+    │   │   └── episode 2
+    │   └── season 2
+    └── show two/
+    ```
+    The show names, season names, and episode names are arbitrary for now. TV just expects to see a media directory containing directories of TV shows. Those TV show directories should contain season directories. Those season directory should contain episode videos.
 1. Clone this project
 1. Build Client
 1. Run Server
