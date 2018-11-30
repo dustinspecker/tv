@@ -6,10 +6,21 @@ const fs = require('fs')
 const ip = require('ip')
 const path = require('path')
 
-const port = 3000
-
 const mediaDir = process.env.TV_MEDIA_DIRECTORY
+const port = 3000
 const serverAddress = `http://${ip.address()}:${port}/`
+
+const findInDirectory = (directoryToSearch, matcher, keyForReturnedFilePath, baseUrl) => {
+  return fs.promises.readdir(directoryToSearch, {withFileTypes: true})
+    .then(allFiles => {
+      return allFiles
+        .filter(file => matcher(file))
+        .map(file => ({
+          name: file.name,
+          [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
+        }))
+    })
+}
 
 fastify.register(require('fastify-cors'))
 
@@ -25,18 +36,6 @@ fastify.get('/*', (request, reply) => {
     .header('Content-Type', 'text/html')
     .send(fs.readFileSync(path.join(__dirname, 'public', 'index.html')))
 })
-
-const findInDirectory = (directoryToSearch, matcher, keyForReturnedFilePath, baseUrl) => {
-  return fs.promises.readdir(directoryToSearch, {withFileTypes: true})
-    .then(allFiles => {
-      return allFiles
-        .filter(file => matcher(file))
-        .map(file => ({
-          name: file.name,
-          [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
-        }))
-    })
-}
 
 fastify.get('/videos', (request, reply) => {
   const base = `${serverAddress}tv/`
