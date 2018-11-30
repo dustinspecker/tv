@@ -25,59 +25,44 @@ fastify.get('/*', (request, reply) => {
     .send(fs.readFileSync(path.join(__dirname, 'public', 'index.html')))
 })
 
-fastify.get('/videos', (request, reply) => {
-  fs.promises.readdir(mediaDir, {withFileTypes: true})
+const findInDirectory = (directoryToSearch, matcher, keyForReturnedFilePath, baseUrl) => {
+  return fs.promises.readdir(directoryToSearch, {withFileTypes: true})
     .then(allFiles => {
-      const base = `http://${ip.address()}:${port}/tv/`
-
-      const shows = allFiles
-        .filter(file => file.isDirectory())
+      return allFiles
+        .filter(file => matcher(file))
         .map(file => ({
           name: file.name,
-          show: `${base}${escape(file.name)}`
+          [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
         }))
+    })
+}
 
-      reply
-        .send({shows})
+fastify.get('/videos', (request, reply) => {
+  const base = `http://${ip.address()}:${port}/tv/`
+
+  return findInDirectory(mediaDir, file => file.isDirectory(), 'show', base)
+    .then(shows => {
+      reply.send({shows})
     })
 })
 
 fastify.get('/tv/:show', (request, reply) => {
+  const base = `http://${ip.address()}:${port}/tv/${request.params.show}/`
   const showPath = path.join(mediaDir, unescape(request.params.show))
 
-  fs.promises.readdir(showPath, {withFileTypes: true})
-    .then(allFiles => {
-      const base = `http://${ip.address()}:${port}/tv/${request.params.show}/`
-
-      const seasons = allFiles
-        .filter(file => file.isDirectory())
-        .map(file => ({
-          name: file.name,
-          season: `${base}${escape(file.name)}`
-        }))
-
-      reply
-        .send({seasons})
+  return findInDirectory(showPath, file => file.isDirectory(), 'season', base)
+    .then(seasons => {
+      reply.send({seasons})
     })
 })
 
 fastify.get('/tv/:show/:season', (request, reply) => {
+  const base = `http://${ip.address()}:${port}/tv/${escape(request.params.show)}/${escape(request.params.season)}/`
   const seasonPath = path.join(mediaDir, unescape(request.params.show), unescape(request.params.season))
 
-  fs.promises.readdir(seasonPath, {withFileTypes: true})
-    .then(allFiles => {
-      const base = `http://${ip.address()}:${port}/tv/${escape(request.params.show)}/${escape(request.params.season)}/`
-
-      const shows = allFiles
-        .filter(file => file.isFile())
-        .map(file => ({
-          name: file.name,
-          show: `${base}${escape(file.name)}`
-        }))
-
-      reply
-        .send({shows})
-
+  return findInDirectory(seasonPath, file => file.isFile(), 'show', base)
+    .then(shows => {
+      reply.send({shows})
     })
 })
 
