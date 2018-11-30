@@ -9,6 +9,7 @@ const path = require('path')
 const port = 3000
 
 const mediaDir = process.env.TV_MEDIA_DIRECTORY
+const serverAddress = `http://${ip.address()}:${port}/`
 
 fastify.register(require('fastify-cors'))
 
@@ -38,7 +39,7 @@ const findInDirectory = (directoryToSearch, matcher, keyForReturnedFilePath, bas
 }
 
 fastify.get('/videos', (request, reply) => {
-  const base = `http://${ip.address()}:${port}/tv/`
+  const base = `${serverAddress}tv/`
 
   return findInDirectory(mediaDir, file => file.isDirectory(), 'show', base)
     .then(shows => {
@@ -47,7 +48,7 @@ fastify.get('/videos', (request, reply) => {
 })
 
 fastify.get('/tv/:show', (request, reply) => {
-  const base = `http://${ip.address()}:${port}/tv/${request.params.show}/`
+  const base = `${serverAddress}tv/${request.params.show}/`
   const showPath = path.join(mediaDir, unescape(request.params.show))
 
   return findInDirectory(showPath, file => file.isDirectory(), 'season', base)
@@ -57,7 +58,7 @@ fastify.get('/tv/:show', (request, reply) => {
 })
 
 fastify.get('/tv/:show/:season', (request, reply) => {
-  const base = `http://${ip.address()}:${port}/tv/${escape(request.params.show)}/${escape(request.params.season)}/`
+  const base = `${serverAddress}tv/${escape(request.params.show)}/${escape(request.params.season)}/`
   const seasonPath = path.join(mediaDir, unescape(request.params.show), unescape(request.params.season))
 
   return findInDirectory(seasonPath, file => file.isFile(), 'show', base)
@@ -106,6 +107,6 @@ fastify.listen(port, '0.0.0.0', err => {
     process.exit(1)
   }
 
-  fastify.log.info(`server listening at http://${ip.address()}:${port}`)
+  fastify.log.info(`server listening at ${serverAddress}`)
   fastify.log.info(`using media from ${mediaDir}`)
 })
