@@ -84,7 +84,7 @@ class App extends React.Component {
               color='inherit'
               variant='h6'
             >
-              {'Dustin\'s TV'}
+              {'TV'}
             </Typography>
           </Toolbar>
         </AppBar>
