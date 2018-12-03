@@ -14,3 +14,7 @@
 #cast:hover {
   cursor: pointer
 }
+
+body {
+  padding-bottom: 50px;
+}
