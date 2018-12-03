@@ -10,6 +10,11 @@ const mediaDir = process.env.TV_MEDIA_DIRECTORY
 const port = 3000
 const serverAddress = `http://${ip.address()}:${port}/`
 
+if (mediaDir === undefined) {
+  fastify.log.error('Please define a media directory by defining the TV_MEDIA_DIRECTORY environment variable. For example:\n\nexport TV_MEDIA_DIRECTORY=/data/tv')
+  process.exit(1)
+}
+
 const findInDirectory = (directoryToSearch, matcher, keyForReturnedFilePath, baseUrl) => {
   return fs.promises.readdir(directoryToSearch, {withFileTypes: true})
     .then(allFiles => {
