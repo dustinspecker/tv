@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prettier": "prettier --write ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
     "fastify-cors": "^0.2.0",
     "fastify-static": "^0.14.0",
     "ip": "^1.1.5"
+  },
+  "devDependencies": {
+    "prettier": "1.15.3"
   }
 }
