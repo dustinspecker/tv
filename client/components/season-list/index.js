@@ -19,15 +19,21 @@ export default class extends React.Component {
   }
 
   render() {
-    return <List>
-      {this.state.seasons.map(({name, season}) => {
-        return <Link key={season} to={`/show/${this.props.match.params.showname}/${name}`}>
-          <ListItem>
-            <ListItemText primary={name} />
-          </ListItem>
-        </Link>
-      })}
-    </List>
+    return (
+      <List>
+        {this.state.seasons.map(({name, season}) => {
+          return (
+            <Link
+              key={season}
+              to={`/show/${this.props.match.params.showname}/${name}`}
+            >
+              <ListItem>
+                <ListItemText primary={name} />
+              </ListItem>
+            </Link>
+          )
+        })}
+      </List>
+    )
   }
 }
-

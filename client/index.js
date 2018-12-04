@@ -50,13 +50,14 @@ class App extends React.Component {
 
     context.requestSession()
 
-    context.addEventListener(cast.framework.CastContextEventType.SESSION_STATE_CHANGED,
+    context.addEventListener(
+      cast.framework.CastContextEventType.SESSION_STATE_CHANGED,
       event => {
         switch (event.sessionState) {
           case cast.framework.SessionState.SESSION_STARTED:
           case cast.framework.SessionState.SESSION_RESUMED:
             this.setState({showMedia: true})
-            break;
+            break
           default:
             this.setState({showMedia: false})
         }
@@ -71,60 +72,51 @@ class App extends React.Component {
     }
 
     const stop = () => {
-      cast.framework.CastContext.getInstance().getCurrentSession().endSession(true)
+      cast.framework.CastContext.getInstance()
+        .getCurrentSession()
+        .endSession(true)
     }
 
-    const mediaList = () => <MediaList media={this.state.shows} showMedia={true} />
+    const mediaList = () => (
+      <MediaList media={this.state.shows} showMedia={true} />
+    )
 
-    return <Router>
-      <>
-        <AppBar position='static'>
-          <Toolbar>
-            <Typography
-              color='inherit'
-              variant='h6'
-            >
-              {'TV'}
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <CastLauncher showLauncher={!this.state.showMedia} />
-        <Route
-          component={mediaList}
-          exact
-          path='/'
-        />
-        <Route
-          component={SeasonList}
-          exact
-          path='/show/:showname'
-        />
-        <Route
-          component={EpisodeList}
-          path='/show/:showname/:season'
-        />
-        <PlayerControls
-          currentTime={this.state.currentTime}
-          duration={this.state.duration}
-          isPaused={this.state.isPaused}
-          playOrPause={() => this.controller.playOrPause()}
-          seek={seek}
-          showControls={this.state.showControls}
-          stop={stop}
-        />
-      </>
-    </Router>
+    return (
+      <Router>
+        <>
+          <AppBar position='static'>
+            <Toolbar>
+              <Typography color='inherit' variant='h6'>
+                {'TV'}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <CastLauncher showLauncher={!this.state.showMedia} />
+          <Route component={mediaList} exact path='/' />
+          <Route component={SeasonList} exact path='/show/:showname' />
+          <Route component={EpisodeList} path='/show/:showname/:season' />
+          <PlayerControls
+            currentTime={this.state.currentTime}
+            duration={this.state.duration}
+            isPaused={this.state.isPaused}
+            playOrPause={() => this.controller.playOrPause()}
+            seek={seek}
+            showControls={this.state.showControls}
+            stop={stop}
+          />
+        </>
+      </Router>
+    )
   }
 }
-
 
 window['__onGCastApiAvailable'] = function(isAvailable) {
   if (isAvailable) {
     cast.framework.CastContext.getInstance().setOptions({
       receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
       autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
-    });
+    })
 
     render(React.createElement(App), document.getElementById('app'))
   }
-};
+}

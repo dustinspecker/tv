@@ -11,7 +11,11 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`/tv/${this.props.match.params.showname}/${this.props.match.params.season}`)
+    fetch(
+      `/tv/${this.props.match.params.showname}/${
+        this.props.match.params.season
+      }`
+    )
       .then(response => response.json())
       .then(({shows}) => {
         this.setState({shows})
@@ -19,11 +23,12 @@ export default class extends React.Component {
   }
 
   render() {
-    return <List>
-      {this.state.shows.map(({name, show}) =>
-        <MovieLink key={name} mediaUrl={show} name={name} />
-      )}
-    </List>
+    return (
+      <List>
+        {this.state.shows.map(({name, show}) => (
+          <MovieLink key={name} mediaUrl={show} name={name} />
+        ))}
+      </List>
+    )
   }
 }
-
