@@ -2,6 +2,7 @@ const {escape, unescape} = require('querystring')
 const fastify = require('fastify')({
   logger: true
 })
+const {findInDirectory} = require('./utils/file')
 const fs = require('fs')
 const ip = require('ip')
 const path = require('path')
@@ -16,21 +17,6 @@ if (mediaDir === undefined) {
   )
   process.exit(1)
 }
-
-const findInDirectory = (
-  directoryToSearch,
-  matcher,
-  keyForReturnedFilePath,
-  baseUrl
-) =>
-  fs.promises.readdir(directoryToSearch, {withFileTypes: true}).then(allFiles =>
-    allFiles
-      .filter(file => matcher(file))
-      .map(file => ({
-        name: file.name,
-        [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
-      }))
-  )
 
 fastify.register(require('fastify-cors'))
 
