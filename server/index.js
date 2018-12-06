@@ -22,18 +22,15 @@ const findInDirectory = (
   matcher,
   keyForReturnedFilePath,
   baseUrl
-) => {
-  return fs.promises
-    .readdir(directoryToSearch, {withFileTypes: true})
-    .then(allFiles => {
-      return allFiles
-        .filter(file => matcher(file))
-        .map(file => ({
-          name: file.name,
-          [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
-        }))
-    })
-}
+) =>
+  fs.promises.readdir(directoryToSearch, {withFileTypes: true}).then(allFiles =>
+    allFiles
+      .filter(file => matcher(file))
+      .map(file => ({
+        name: file.name,
+        [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
+      }))
+  )
 
 fastify.register(require('fastify-cors'))
 
