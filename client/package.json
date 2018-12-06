@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --write ./components/**/*.js ./index.js ./webpack.config.js",
-    "test": "prettier --list-different ./components/**/*.js ./index.js ./webpack.config.js"
+    "prettier": "prettier --write './**/*.js'",
+    "test": "prettier --list-different './**/*.js'"
   },
   "repository": {
     "type": "git",
