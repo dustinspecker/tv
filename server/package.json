@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --write ./index.js",
-    "test": "prettier --list-different ./index.js"
+    "prettier": "prettier --write './**/*.js'",
+    "test": "prettier --list-different './**/*.js'"
   },
   "repository": {
     "type": "git",
