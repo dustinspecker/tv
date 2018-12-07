@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack-cli",
     "prettier": "prettier --write './**/*.js'",
     "test": "prettier --list-different './**/*.js'"
   },
