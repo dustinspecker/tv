@@ -34,7 +34,7 @@
 1. `cd server`
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
 1. `npm i`
-1. `node index.js`
+1. `npm start`
 1. Take note of the address logged by Server
 
 ## Usage
