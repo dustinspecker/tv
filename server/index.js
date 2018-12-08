@@ -1,3 +1,5 @@
+'use strict'
+
 const {escape, unescape} = require('querystring')
 const fastify = require('fastify')({
   logger: true
