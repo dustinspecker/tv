@@ -6,8 +6,6 @@ const ip = require('ip')
 const path = require('path')
 
 const mediaDir = process.env.TV_MEDIA_DIRECTORY
-const port = 3000
-const serverAddress = `http://${ip.address()}:${port}/`
 
 if (mediaDir === undefined) {
   fastify.log.error(
@@ -17,6 +15,14 @@ if (mediaDir === undefined) {
 }
 
 module.exports = function(fastify, opts, next) {
+  fastify.ready().then(() => {
+    const serverAddress = `http://${ip.address()}:${
+      fastify.server.address().port
+    }/`
+    fastify.log.info(`server listening at ${serverAddress}`)
+    fastify.log.info(`using media from ${mediaDir}`)
+  })
+
   fastify.register(require('fastify-cors'))
 
   fastify.register(require('fastify-static'), {
@@ -34,9 +40,6 @@ module.exports = function(fastify, opts, next) {
     dir: path.join(__dirname, 'services'),
     options: Object.assign({mediaDir}, opts)
   })
-
-  fastify.log.info(`server listening at ${serverAddress}`)
-  fastify.log.info(`using media from ${mediaDir}`)
 
   next()
 }
