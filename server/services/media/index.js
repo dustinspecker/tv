@@ -2,16 +2,13 @@
 
 const {findInDirectory} = require('../../utils/file')
 const fs = require('fs')
-const ip = require('ip')
 const path = require('path')
 
 const mediaDir = process.env.TV_MEDIA_DIRECTORY
-const port = 3000
-const serverAddress = `http://${ip.address()}:${port}/`
 
 module.exports = function(fastify, opts, next) {
   fastify.get('/videos', (request, reply) => {
-    const base = `${serverAddress}tv/`
+    const base = `tv/`
 
     return findInDirectory(
       mediaDir,
@@ -24,7 +21,7 @@ module.exports = function(fastify, opts, next) {
   })
 
   fastify.get('/tv/:show', (request, reply) => {
-    const base = `${serverAddress}tv/${request.params.show}/`
+    const base = `tv/${request.params.show}/`
     const showPath = path.join(mediaDir, unescape(request.params.show))
 
     return findInDirectory(
@@ -38,7 +35,7 @@ module.exports = function(fastify, opts, next) {
   })
 
   fastify.get('/tv/:show/:season', (request, reply) => {
-    const base = `${serverAddress}tv/${escape(request.params.show)}/${escape(
+    const base = `tv/${escape(request.params.show)}/${escape(
       request.params.season
     )}/`
     const seasonPath = path.join(
