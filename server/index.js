@@ -32,7 +32,7 @@ module.exports = function(fastify, opts, next) {
 
   fastify.register(Autoload, {
     dir: path.join(__dirname, 'services'),
-    opts: Object.assign({}, opts)
+    options: Object.assign({mediaDir}, opts)
   })
 
   fastify.log.info(`server listening at ${serverAddress}`)
