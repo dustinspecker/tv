@@ -14,25 +14,24 @@ if (mediaDir === undefined) {
 }
 
 module.exports = function(fastify, opts, next) {
-  fastify.ready().then(() => {
-    const serverAddress = `http://${ip.address()}:${
-      fastify.server.address().port
-    }`
-    fastify.log.info(`server listening at ${serverAddress}`)
-    fastify.log.info(`using media from ${mediaDir}`)
-  })
-
-  fastify.register(require('fastify-cors'))
-
-  fastify.register(require('fastify-static'), {
-    root: path.join(__dirname, 'public', 'assets'),
-    prefix: '/assets/'
-  })
-
-  fastify.register(Autoload, {
-    dir: path.join(__dirname, 'services'),
-    options: Object.assign({mediaDir}, opts)
-  })
+  fastify
+    .register(require('fastify-cors'))
+    .register(require('fastify-static'), {
+      root: path.join(__dirname, 'public', 'assets'),
+      prefix: '/assets/'
+    })
+    .register(Autoload, {
+      dir: path.join(__dirname, 'services'),
+      options: Object.assign({mediaDir}, opts)
+    })
+    .ready()
+    .then(() => {
+      const serverAddress = `http://${ip.address()}:${
+        fastify.server.address().port
+      }`
+      fastify.log.info(`server listening at ${serverAddress}`)
+      fastify.log.info(`using media from ${mediaDir}`)
+    })
 
   next()
 }
