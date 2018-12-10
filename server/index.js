@@ -1,6 +1,6 @@
 'use strict'
 
-const Autoload = require('fastify-autoload')
+const autoload = require('fastify-autoload')
 const fastifyEnv = require('fastify-env')
 const ip = require('ip')
 const path = require('path')
@@ -23,7 +23,7 @@ module.exports = function(fastify, opts, next) {
       root: path.join(__dirname, 'public', 'assets'),
       prefix: '/assets/'
     })
-    .register(Autoload, {
+    .register(autoload, {
       dir: path.join(__dirname, 'services'),
       options: Object.assign({}, opts)
     })
