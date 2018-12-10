@@ -1,7 +1,6 @@
 'use strict'
 
 const Autoload = require('fastify-autoload')
-const fs = require('fs')
 const ip = require('ip')
 const path = require('path')
 
@@ -28,12 +27,6 @@ module.exports = function(fastify, opts, next) {
   fastify.register(require('fastify-static'), {
     root: path.join(__dirname, 'public', 'assets'),
     prefix: '/assets/'
-  })
-
-  fastify.get('/*', (request, reply) => {
-    reply
-      .header('Content-Type', 'text/html')
-      .send(fs.readFileSync(path.join(__dirname, 'public', 'index.html')))
   })
 
   fastify.register(Autoload, {
