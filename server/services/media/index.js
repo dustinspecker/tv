@@ -9,7 +9,7 @@ module.exports = function(fastify, opts, next) {
     const base = `tv/`
 
     return findInDirectory(
-      opts.mediaDir,
+      fastify.config.TV_MEDIA_DIRECTORY,
       file => file.isDirectory(),
       'show',
       base
@@ -20,7 +20,10 @@ module.exports = function(fastify, opts, next) {
 
   fastify.get('/tv/:show', (request, reply) => {
     const base = `tv/${request.params.show}/`
-    const showPath = path.join(opts.mediaDir, unescape(request.params.show))
+    const showPath = path.join(
+      fastify.config.TV_MEDIA_DIRECTORY,
+      unescape(request.params.show)
+    )
 
     return findInDirectory(
       showPath,
@@ -37,7 +40,7 @@ module.exports = function(fastify, opts, next) {
       request.params.season
     )}/`
     const seasonPath = path.join(
-      opts.mediaDir,
+      fastify.config.TV_MEDIA_DIRECTORY,
       unescape(request.params.show),
       unescape(request.params.season)
     )
@@ -54,7 +57,7 @@ module.exports = function(fastify, opts, next) {
 
   fastify.get('/tv/:show/:season/:episode', (request, reply) => {
     const episodePath = path.join(
-      opts.mediaDir,
+      fastify.config.TV_MEDIA_DIRECTORY,
       unescape(request.params.show),
       unescape(request.params.season),
       unescape(request.params.episode)
