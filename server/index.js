@@ -1,7 +1,9 @@
 'use strict'
 
 const autoload = require('fastify-autoload')
+const fastifyCors = require('fastify-cors')
 const fastifyEnv = require('fastify-env')
+const fastifyStatic = require('fastify-static')
 const ip = require('ip')
 const path = require('path')
 
@@ -18,8 +20,8 @@ module.exports = function(fastify, opts, next) {
 
   fastify
     .register(fastifyEnv, {schema: envSchema})
-    .register(require('fastify-cors'))
-    .register(require('fastify-static'), {
+    .register(fastifyCors)
+    .register(fastifyStatic, {
       root: path.join(__dirname, 'public', 'assets'),
       prefix: '/assets/'
     })
