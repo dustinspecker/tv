@@ -5,13 +5,11 @@ const path = require('path')
 
 module.exports = function(fastify, opts, next) {
   fastify.get('/*', (request, reply) => {
-    reply
-      .header('Content-Type', 'text/html')
-      .send(
-        fs.readFileSync(
-          path.join(__dirname, '..', '..', 'public', 'index.html')
-        )
-      )
+    fs.promises
+      .readFile(path.join(__dirname, '..', '..', 'public', 'index.html'))
+      .then(file => {
+        reply.header('Content-Type', 'text/html').send(file)
+      })
   })
 
   next()
