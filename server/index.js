@@ -17,7 +17,7 @@ module.exports = function(fastify, opts, next) {
   fastify.ready().then(() => {
     const serverAddress = `http://${ip.address()}:${
       fastify.server.address().port
-    }/`
+    }`
     fastify.log.info(`server listening at ${serverAddress}`)
     fastify.log.info(`using media from ${mediaDir}`)
   })
