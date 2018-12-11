@@ -33,9 +33,20 @@
 
 1. `cd server`
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
+    - Read [Environment Variables](#environment-variables) for more information
 1. `npm i`
 1. `npm start`
 1. Take note of the address logged by Server
+
+## Environment Variables
+
+The following environment variables may either be defined as normal environment variables (`export var=value`) or by using [dotenv's `.env` file](https://github.com/motdotla/dotenv#usage).
+
+| Environment Variable | Description |
+| -------------------- | ----------- |
+| TV_MEDIA_DIRECTORY | Directory on host to search for TV media |
+
+In addition to the above supported environment variables, [fastify-cli](https://github.com/fastify/fastify-cli) has its own [supported environment variables](https://github.com/fastify/fastify-cli#options) that may be used as described above.
 
 ## Usage
 
