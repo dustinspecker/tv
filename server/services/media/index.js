@@ -6,7 +6,7 @@ const path = require('path')
 
 module.exports = function(fastify, opts, next) {
   fastify.get('/videos', (request, reply) => {
-    const base = `tv/`
+    const base = `/tv/`
 
     return findInDirectory(
       fastify.config.TV_MEDIA_DIRECTORY,
@@ -19,7 +19,6 @@ module.exports = function(fastify, opts, next) {
   })
 
   fastify.get('/tv/:show', (request, reply) => {
-    const base = `tv/${request.params.show}/`
     const showPath = path.join(
       fastify.config.TV_MEDIA_DIRECTORY,
       unescape(request.params.show)
@@ -29,16 +28,13 @@ module.exports = function(fastify, opts, next) {
       showPath,
       file => file.isDirectory(),
       'season',
-      base
+      request.raw.originalUrl
     ).then(seasons => {
       reply.send({seasons})
     })
   })
 
   fastify.get('/tv/:show/:season', (request, reply) => {
-    const base = `tv/${escape(request.params.show)}/${escape(
-      request.params.season
-    )}/`
     const seasonPath = path.join(
       fastify.config.TV_MEDIA_DIRECTORY,
       unescape(request.params.show),
@@ -49,7 +45,7 @@ module.exports = function(fastify, opts, next) {
       seasonPath,
       file => file.isFile(),
       'show',
-      base
+      request.raw.originalUrl
     ).then(shows => {
       reply.send({shows})
     })

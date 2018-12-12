@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+const path = require('path')
 
 const findInDirectory = (
   directoryToSearch,
@@ -13,7 +14,7 @@ const findInDirectory = (
       .filter(file => matcher(file))
       .map(file => ({
         name: file.name,
-        [keyForReturnedFilePath]: `${baseUrl}${escape(file.name)}`
+        [keyForReturnedFilePath]: path.join(baseUrl, escape(file.name))
       }))
   )
 
