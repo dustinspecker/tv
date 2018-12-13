@@ -4,6 +4,8 @@
 
 **This is a work in progress. I do not recommend using this.**
 
+[![Build Status](https://travis-ci.org/dustinspecker/tv.svg?branch=master)](https://travis-ci.org/dustinspecker/tv)
+
 ## Prerequisites
 
 1. [Register any Chromecast compatible device](https://developers.google.com/cast/docs/registration#devices) - this is required because this is simply using the default Chromecast receiver app
