@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- 10
+matrix:
+  include:
+  - env: PROJECT_DIR=./client
+  - env: PROJECT_DIR=./server
+before_install:
+- cd $PROJECT_DIR
