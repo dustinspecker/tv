@@ -77,9 +77,7 @@ class App extends React.Component {
         .endSession(true)
     }
 
-    const mediaList = () => (
-      <MediaList media={this.state.shows} showMedia={true} />
-    )
+    const mediaList = () => <MediaList media={this.state.shows} />
 
     return (
       <Router>

@@ -6,21 +6,19 @@ import React from 'react'
 
 export default class extends React.Component {
   render() {
-    if (this.props.showMedia) {
-      return (
-        <List>
-          {this.props.media.map(({name, show}) => {
-            return (
-              <Link key={show} to={`/show/${name}`}>
-                <ListItem>
-                  <ListItemText primary={name} />
-                </ListItem>
-              </Link>
-            )
-          })}
-        </List>
-      )
-    }
+    return (
+      <List>
+        {this.props.media.map(({name, show}) => {
+          return (
+            <Link key={show} to={`/show/${name}`}>
+              <ListItem>
+                <ListItemText primary={name} />
+              </ListItem>
+            </Link>
+          )
+        })}
+      </List>
+    )
 
     return null
   }
