@@ -7,7 +7,7 @@
     "dev": "fastify start -l info -P -a '0.0.0.0' index.js",
     "prettier": "prettier --write './**/*.js'",
     "start": "fastify start -l info -a '0.0.0.0' index.js",
-    "test": "prettier --list-different './**/*.js'"
+    "test": "prettier --list-different './**/*.js' && ava"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,8 @@
     "ip": "^1.1.5"
   },
   "devDependencies": {
-    "prettier": "1.15.3"
+    "ava": "^1.0.1",
+    "prettier": "1.15.3",
+    "proxyquire": "^2.1.0"
   }
 }
