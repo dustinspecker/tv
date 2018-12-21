@@ -6,7 +6,7 @@ export default class extends React.Component {
   handleClick = () => {
     const castSession = cast.framework.CastContext.getInstance().getCurrentSession()
     const mediaInfo = new chrome.cast.media.MediaInfo(
-      `http://${location.host}/${this.props.mediaUrl}`,
+      `http://${location.host}${this.props.mediaUrl}`,
       'video/mp4'
     )
     const request = new chrome.cast.media.LoadRequest(mediaInfo)
