@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeasonList displays list of seasons 1`] = `
+<ul
+  className="MuiList-root-1 MuiList-padding-2"
+/>
+`;
+
+exports[`SeasonList displays list of seasons 2`] = `
+<ul
+  className="MuiList-root-1 MuiList-padding-2"
+>
+  <a
+    href="/show/showname/Season 1"
+    onClick={[Function]}
+  >
+    <li
+      className="MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemText-root-17"
+      >
+        <span
+          className="MuiTypography-root-23 MuiTypography-subheading-30 MuiListItemText-primary-20"
+        >
+          Season 1
+        </span>
+      </div>
+    </li>
+  </a>
+  <a
+    href="/show/showname/Season 2"
+    onClick={[Function]}
+  >
+    <li
+      className="MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemText-root-17"
+      >
+        <span
+          className="MuiTypography-root-23 MuiTypography-subheading-30 MuiListItemText-primary-20"
+        >
+          Season 2
+        </span>
+      </div>
+    </li>
+  </a>
+</ul>
+`;
