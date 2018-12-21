@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CastLauncher hides google-cast-launcher when showLauncher is false 1`] = `null`;
+
+exports[`CastLauncher shows google-cast-launcher when showLauncher is true 1`] = `
+<div
+  id="cast"
+>
+  <google-cast-launcher />
+</div>
+`;
