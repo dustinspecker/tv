@@ -11,7 +11,7 @@
 [![DevDependencies](https://david-dm.org/dustinspecker/tv/dev-status.svg?path=client)](https://david-dm.org/dustinspecker/tv?path=client&type=dev)
 
 ![Server](https://img.shields.io/badge/component-server-blue.svg)
-[![Dependencies](https://david-dm.org/dustinspecker/tv/status.svg?path=server)](https://david-dm.org/dustinspecker/tv?path=server&type=dev)
+[![Dependencies](https://david-dm.org/dustinspecker/tv/status.svg?path=server)](https://david-dm.org/dustinspecker/tv?path=server)
 [![DevDependencies](https://david-dm.org/dustinspecker/tv/dev-status.svg?path=server)](https://david-dm.org/dustinspecker/tv?path=server&type=dev)
 
 ## Prerequisites
