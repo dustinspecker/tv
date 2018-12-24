@@ -7,7 +7,8 @@
     "dev": "fastify start -l info -P -a '0.0.0.0' index.js",
     "prettier": "prettier --write './**/*.js'",
     "start": "fastify start -l info -a '0.0.0.0' index.js",
-    "test": "prettier --list-different './**/*.js' && ava"
+    "pretest": "prettier --list-different './**/*.js'",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
   "homepage": "https://github.com/dustinspecker/tv#readme",
   "dependencies": {
     "fastify-autoload": "^0.6.0",
-    "fastify-cli": "^0.26.2",
+    "fastify-cli": "^0.27.0",
     "fastify-cors": "^0.2.0",
     "fastify-env": "^0.6.1",
     "fastify-static": "^0.14.0",
