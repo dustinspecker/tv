@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/dustinspecker/tv#readme",
   "dependencies": {
-    "fastify-autoload": "^0.5.1",
+    "fastify-autoload": "^0.6.0",
     "fastify-cli": "^0.26.2",
     "fastify-cors": "^0.2.0",
     "fastify-env": "^0.6.1",
