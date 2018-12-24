@@ -6,6 +6,14 @@
 
 [![Build Status](https://travis-ci.org/dustinspecker/tv.svg?branch=master)](https://travis-ci.org/dustinspecker/tv)
 
+![Client](https://img.shields.io/badge/component-client-blue.svg)
+[![Dependencies](https://david-dm.org/dustinspecker/tv/status.svg?path=client)](https://david-dm.org/dustinspecker/tv?path=client)
+[![DevDependencies](https://david-dm.org/dustinspecker/tv/dev-status.svg?path=client)](https://david-dm.org/dustinspecker/tv?path=client&type=dev)
+
+![Server](https://img.shields.io/badge/component-server-blue.svg)
+[![Dependencies](https://david-dm.org/dustinspecker/tv/status.svg?path=server)](https://david-dm.org/dustinspecker/tv?path=server&type=dev)
+[![DevDependencies](https://david-dm.org/dustinspecker/tv/dev-status.svg?path=server)](https://david-dm.org/dustinspecker/tv?path=server&type=dev)
+
 ## Prerequisites
 
 1. [Register any Chromecast compatible device](https://developers.google.com/cast/docs/registration#devices) - this is required because this is simply using the default Chromecast receiver app
