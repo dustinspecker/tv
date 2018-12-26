@@ -82,8 +82,5 @@ test('PlayerControl shows human readable time', () => {
 
   const component = renderer.create(element)
 
-  expect(() => {
-    component.root.findByProps({children: '1:03'})
-    component.root.findByProps({children: '10:59'})
-  }).not.toThrow()
+  expect(component.toJSON()).toMatchSnapshot()
 })

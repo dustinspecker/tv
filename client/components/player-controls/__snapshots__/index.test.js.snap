@@ -1,3 +1,141 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PlayerControl shows human readable time 1`] = `
+<header
+  className="MuiPaper-root-13 MuiPaper-elevation4-19 MuiAppBar-root-4 MuiAppBar-positionFixed-5 MuiAppBar-colorDefault-10 mui-fixed PlayerControls-appBar-1"
+>
+  <div
+    className="MuiToolbar-root-40 MuiToolbar-regular-42 MuiToolbar-gutters-41"
+  >
+    <button
+      className="MuiButtonBase-root-50 MuiIconButton-root-44"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiIconButton-label-49"
+      >
+        <span
+          aria-hidden="true"
+          className="material-icons MuiIcon-root-53"
+        >
+          pause
+        </span>
+      </span>
+      <span
+        className="MuiTouchRipple-root-76"
+      />
+    </button>
+    <div>
+      1:03
+    </div>
+    <div
+      aria-orientation="horizontal"
+      aria-valuemax={659}
+      aria-valuemin={0}
+      aria-valuenow={63}
+      className="MuiSlider-root-62 PlayerControls-sliderRoot-2"
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      onTouchMove={[Function]}
+      onTouchStartCapture={[Function]}
+      role="slider"
+      variant="determinate"
+    >
+      <div
+        className="MuiSlider-container-63"
+      >
+        <div
+          className="MuiSlider-track-64 PlayerControls-sliderTrack-3 MuiSlider-trackBefore-65"
+          style={
+            Object {
+              "transform": "translateY(-50%) scaleX(0.09559939301972685)",
+            }
+          }
+        />
+        <div
+          className="MuiSlider-thumbWrapper-67"
+          style={
+            Object {
+              "transform": "translateX(9.559939301972685%)",
+            }
+          }
+        >
+          <button
+            className="MuiButtonBase-root-50 MuiSlider-thumb-68"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            onTouchStartCapture={[Function]}
+            tabIndex="0"
+            type="button"
+          />
+        </div>
+        <div
+          className="MuiSlider-track-64 PlayerControls-sliderTrack-3 MuiSlider-trackAfter-66"
+          style={
+            Object {
+              "transform": "translateY(-50%) scaleX(0.9044006069802731)",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div>
+      10:59
+    </div>
+    <button
+      className="MuiButtonBase-root-50 MuiIconButton-root-44"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiIconButton-label-49"
+      >
+        <span
+          aria-hidden="true"
+          className="material-icons MuiIcon-root-53"
+        >
+          stop
+        </span>
+      </span>
+      <span
+        className="MuiTouchRipple-root-76"
+      />
+    </button>
+  </div>
+</header>
+`;
+
 exports[`PlayerControls hides controls when showControls false 1`] = `null`;
