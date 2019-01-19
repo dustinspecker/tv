@@ -6,8 +6,8 @@ test('EpisodeList displays list of episodes', () => {
   fetch.mockResponseOnce(
     JSON.stringify({
       shows: [
-        {name: 'Episode 1', show: '/show/season1/episode1'},
-        {name: 'Episode 2', show: '/show/season1/episode2'}
+        {name: 'Episode 1', episode: '/show/season1/episode1'},
+        {name: 'Episode 2', episode: '/show/season1/episode2'}
       ]
     })
   )

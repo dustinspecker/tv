@@ -24,8 +24,8 @@ export default class extends React.Component {
   render() {
     return (
       <List>
-        {this.state.shows.map(({name, show}) => (
-          <MediaLink key={name} mediaUrl={show} name={name} />
+        {this.state.shows.map(({name, episode}) => (
+          <MediaLink key={name} mediaUrl={episode} name={name} />
         ))}
       </List>
     )

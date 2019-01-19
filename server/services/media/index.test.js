@@ -95,7 +95,7 @@ test('GET /tv/:show/:season returns list of episodes', t => {
     t.is(dirPath, path.join(tvMediaDirectory, 'Some Show', 'Season 1'))
     t.false(matcher(directory))
     t.true(matcher(file))
-    t.is(key, 'show')
+    t.is(key, 'episode')
     t.is(base, '/tv/Some%20Show/Season%201')
   }
 

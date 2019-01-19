@@ -44,7 +44,7 @@ module.exports = function(fastify, opts, next) {
     return findInDirectory(
       seasonPath,
       file => file.isFile(),
-      'show',
+      'episode',
       request.raw.originalUrl
     ).then(shows => {
       reply.send({shows})
