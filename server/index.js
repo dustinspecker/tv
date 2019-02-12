@@ -3,7 +3,6 @@
 const fastifyAutoload = require('fastify-autoload')
 const fastifyCors = require('fastify-cors')
 const fastifyEnv = require('fastify-env')
-const ip = require('ip')
 const path = require('path')
 
 module.exports = function(fastify, opts, next) {
@@ -26,10 +25,6 @@ module.exports = function(fastify, opts, next) {
     })
     .ready()
     .then(() => {
-      const serverAddress = `http://${ip.address()}:${
-        fastify.server.address().port
-      }`
-      fastify.log.info(`server listening at ${serverAddress}`)
       fastify.log.info(`using media from ${fastify.config.TV_MEDIA_DIRECTORY}`)
     })
 
