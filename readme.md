@@ -29,15 +29,9 @@
     ```
     The show names, season names, and episode names are arbitrary for now. TV just expects to see a media directory containing directories of TV shows. Those TV show directories should contain season directories. Those season directory should contain episode videos.
 1. Clone this project
-1. Build Client
 1. Run Server
-
-## Build Client
-
-1. `cd client`
-1. `npm i -g webpack-cli`
-1. `npm i`
-1. `webpack-cli`
+1. Build Client
+1. Run Client Proxy Server
 
 ## Run Server
 
@@ -46,7 +40,6 @@
     - Read [Environment Variables](#environment-variables) for more information
 1. `npm i`
 1. `npm start`
-1. Take note of the address logged by Server
 
 ## Environment Variables
 
@@ -58,9 +51,22 @@ The following environment variables may either be defined as normal environment 
 
 In addition to the above supported environment variables, [fastify-cli](https://github.com/fastify/fastify-cli) has its own [supported environment variables](https://github.com/fastify/fastify-cli#options) that may be used as described above.
 
+The environment variables must be defined in the same shell running Server or in a `.env` file in `./tv/server` directory.
+
+## Build Client
+
+1. `cd client`
+1. `npm i -g webpack-cli`
+1. `npm i`
+1. `webpack-cli`
+
+## Run Client Proxy Server
+1. `npm start`
+1. Default browser will open to local IP. Take note of this local IP if wanting to connect from another device.
+
 ## Usage
 
-1. Navigate to the address logged by Server on Chrome browser on any device on same network as Server
+1. Navigate to the address opened by Client Proxy Server in Chrome browser on any device on same network as Server
 1. Click/Tap the Google Cast icon to begin a cast session
 1. Select a video to begin casting
 

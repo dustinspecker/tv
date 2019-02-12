@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack-cli",
     "prettier": "prettier --write './**/*.js'",
+    "start": "webpack-dev-server",
     "test": "prettier --list-different './**/*.js' && jest"
   },
   "repository": {
@@ -42,7 +43,8 @@
     "react-test-renderer": "^16.7.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
   },
   "jest": {
     "automock": false,

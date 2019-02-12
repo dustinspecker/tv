@@ -2,6 +2,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const template = require('html-webpack-template')
 
 module.exports = {
+  devServer: {
+    contentBase: __dirname + '/build',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    open: true,
+    proxy: {
+      '/tv': 'http://localhost:3000',
+      '/videos': 'http://localhost:3000'
+    },
+    useLocalIp: true
+  },
   entry: './index.js',
   mode: 'development',
   module: {
