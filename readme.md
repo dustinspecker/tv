@@ -64,6 +64,17 @@ The environment variables must be defined in the same shell running Server or in
 1. `npm start`
 1. Default browser will open to local IP. Take note of this local IP if wanting to connect from another device.
 
+## docker-compose
+
+Instead of manually building and running these servers, `docker-compose` may be used instead.
+
+1. Install docker daemon and make sure it's running
+1. Clone this project
+1. Navigate to top level of this project
+1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
+1. `docker compose up --build`
+1. Open browser and navigate to local IP address on port 8080
+
 ## Usage
 
 1. Navigate to the address opened by Client Proxy Server in Chrome browser on any device on same network as Server

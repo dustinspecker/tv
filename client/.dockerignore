@@ -1,0 +1,9 @@
+.git
+.gitignore
+.prettierignore
+.prettierrc
+Dockerfile
+build
+nginx.conf
+node_modules
+setup-jest.js
