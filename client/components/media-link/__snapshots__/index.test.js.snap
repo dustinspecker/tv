@@ -2,9 +2,11 @@
 
 exports[`MediaLink displays media button 1`] = `
 <div
-  className="MuiButtonBase-root-13 MuiListItem-root-1 MuiListItem-default-4 MuiListItem-gutters-9 MuiListItem-button-10"
+  aria-disabled={false}
+  className="MuiButtonBase-root MuiListItem-root MuiListItem-default MuiListItem-gutters MuiListItem-button"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
   onKeyUp={[Function]}
@@ -18,16 +20,16 @@ exports[`MediaLink displays media button 1`] = `
   tabIndex="0"
 >
   <div
-    className="MuiListItemText-root-16"
+    className="MuiListItemText-root"
   >
     <span
-      className="MuiTypography-root-22 MuiTypography-subheading-29 MuiListItemText-primary-19"
+      className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
     >
       some media
     </span>
   </div>
   <span
-    className="MuiTouchRipple-root-57"
+    className="MuiTouchRipple-root"
   />
 </div>
 `;

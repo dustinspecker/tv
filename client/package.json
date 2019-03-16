@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/dustinspecker/tv#readme",
   "dependencies": {
-    "@material-ui/core": "^3.4.0",
-    "@material-ui/lab": "^3.0.0-alpha.23",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
+    "@material-ui/core": "^4.0.0-alpha.3",
+    "@material-ui/lab": "^4.0.0-alpha.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.0",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {

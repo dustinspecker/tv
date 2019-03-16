@@ -2,18 +2,20 @@
 
 exports[`EpisodeList displays list of episodes 1`] = `
 <ul
-  className="MuiList-root-1 MuiList-padding-2"
+  className="MuiList-root MuiList-padding"
 />
 `;
 
 exports[`EpisodeList displays list of episodes 2`] = `
 <ul
-  className="MuiList-root-1 MuiList-padding-2"
+  className="MuiList-root MuiList-padding"
 >
   <div
-    className="MuiButtonBase-root-17 MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13 MuiListItem-button-14"
+    aria-disabled={false}
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-default MuiListItem-gutters MuiListItem-button"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
@@ -27,22 +29,24 @@ exports[`EpisodeList displays list of episodes 2`] = `
     tabIndex="0"
   >
     <div
-      className="MuiListItemText-root-20"
+      className="MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root-26 MuiTypography-subheading-33 MuiListItemText-primary-23"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
       >
         Episode 1
       </span>
     </div>
     <span
-      className="MuiTouchRipple-root-61"
+      className="MuiTouchRipple-root"
     />
   </div>
   <div
-    className="MuiButtonBase-root-17 MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13 MuiListItem-button-14"
+    aria-disabled={false}
+    className="MuiButtonBase-root MuiListItem-root MuiListItem-default MuiListItem-gutters MuiListItem-button"
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
@@ -56,16 +60,16 @@ exports[`EpisodeList displays list of episodes 2`] = `
     tabIndex="0"
   >
     <div
-      className="MuiListItemText-root-20"
+      className="MuiListItemText-root"
     >
       <span
-        className="MuiTypography-root-26 MuiTypography-subheading-33 MuiListItemText-primary-23"
+        className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
       >
         Episode 2
       </span>
     </div>
     <span
-      className="MuiTouchRipple-root-61"
+      className="MuiTouchRipple-root"
     />
   </div>
 </ul>

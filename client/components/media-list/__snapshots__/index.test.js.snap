@@ -2,21 +2,21 @@
 
 exports[`MediaList displays list of shows 1`] = `
 <ul
-  className="MuiList-root-1 MuiList-padding-2"
+  className="MuiList-root MuiList-padding"
 >
   <a
     href="/show/show1"
     onClick={[Function]}
   >
     <li
-      className="MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13"
+      className="MuiListItem-root MuiListItem-default MuiListItem-gutters"
       disabled={false}
     >
       <div
-        className="MuiListItemText-root-17"
+        className="MuiListItemText-root"
       >
         <span
-          className="MuiTypography-root-23 MuiTypography-subheading-30 MuiListItemText-primary-20"
+          className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
         >
           show1
         </span>
@@ -28,14 +28,14 @@ exports[`MediaList displays list of shows 1`] = `
     onClick={[Function]}
   >
     <li
-      className="MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13"
+      className="MuiListItem-root MuiListItem-default MuiListItem-gutters"
       disabled={false}
     >
       <div
-        className="MuiListItemText-root-17"
+        className="MuiListItemText-root"
       >
         <span
-          className="MuiTypography-root-23 MuiTypography-subheading-30 MuiListItemText-primary-20"
+          className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
         >
           show2
         </span>

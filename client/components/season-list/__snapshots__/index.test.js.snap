@@ -2,27 +2,27 @@
 
 exports[`SeasonList displays list of seasons 1`] = `
 <ul
-  className="MuiList-root-1 MuiList-padding-2"
+  className="MuiList-root MuiList-padding"
 />
 `;
 
 exports[`SeasonList displays list of seasons 2`] = `
 <ul
-  className="MuiList-root-1 MuiList-padding-2"
+  className="MuiList-root MuiList-padding"
 >
   <a
     href="/show/showname/Season 1"
     onClick={[Function]}
   >
     <li
-      className="MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13"
+      className="MuiListItem-root MuiListItem-default MuiListItem-gutters"
       disabled={false}
     >
       <div
-        className="MuiListItemText-root-17"
+        className="MuiListItemText-root"
       >
         <span
-          className="MuiTypography-root-23 MuiTypography-subheading-30 MuiListItemText-primary-20"
+          className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
         >
           Season 1
         </span>
@@ -34,14 +34,14 @@ exports[`SeasonList displays list of seasons 2`] = `
     onClick={[Function]}
   >
     <li
-      className="MuiListItem-root-5 MuiListItem-default-8 MuiListItem-gutters-13"
+      className="MuiListItem-root MuiListItem-default MuiListItem-gutters"
       disabled={false}
     >
       <div
-        className="MuiListItemText-root-17"
+        className="MuiListItemText-root"
       >
         <span
-          className="MuiTypography-root-23 MuiTypography-subheading-30 MuiListItemText-primary-20"
+          className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary"
         >
           Season 2
         </span>
