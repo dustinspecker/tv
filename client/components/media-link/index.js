@@ -12,7 +12,27 @@ export default class extends React.Component {
       `${this.context.apiServer}${this.props.mediaUrl}`,
       'video/mp4'
     )
+
+    if (this.props.captions.length) {
+      const subtitle = new chrome.cast.media.Track(
+        1,
+        chrome.cast.media.TrackType.TEXT
+      )
+      subtitle.trackContentId = `${this.context.apiServer}${
+        this.props.captions[0]
+      }`
+      subtitle.subtype = chrome.cast.media.TextTrackType.SUBTITLES
+      subtitle.name = 'English Subtitles'
+      subtitle.language = 'en-US'
+
+      mediaInfo.tracks = [subtitle]
+      mediaInfo.textTrackStyle = new chrome.cast.media.TextTrackStyle()
+    }
+
     const request = new chrome.cast.media.LoadRequest(mediaInfo)
+    if (this.props.captions.length) {
+      request.activeTrackIds = [1]
+    }
     castSession.loadMedia(request).then(
       function() {
         console.log('Load succeed')

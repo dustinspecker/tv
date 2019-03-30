@@ -32,17 +32,27 @@ test('MediaLink click casts media - success', () => {
 
   const MediaInfo = jest.fn()
   const LoadRequest = jest.fn()
+  const TextTrackStyle = jest.fn()
+  const Track = jest.fn()
   global.chrome = {
     cast: {
       media: {
         LoadRequest,
-        MediaInfo
+        MediaInfo,
+        Track,
+        TextTrackStyle,
+        TextTrackType: {
+          SUBTITLES: 'subtitles'
+        },
+        TrackType: {
+          TEXT: 'text'
+        }
       }
     }
   }
 
   const props = {
-    captions: [],
+    captions: ['some/url.vtt'],
     mediaUrl: '/some/url'
   }
 
@@ -97,6 +107,7 @@ test('MediaLink click casts media - error', () => {
   }
 
   const props = {
+    captions: [],
     mediaUrl: '/some/url'
   }
 
