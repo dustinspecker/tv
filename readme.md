@@ -22,8 +22,9 @@
     media/
     ├── show one/
     │   ├── season 1
-    │   │   ├── episode 1
-    │   │   └── episode 2
+    │   │   ├── episode 1.mp4
+    │   │   ├── episode 1.vtt
+    │   │   └── episode 2.mp4
     │   └── season 2
     └── show two/
     ```

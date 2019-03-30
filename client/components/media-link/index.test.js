@@ -42,6 +42,7 @@ test('MediaLink click casts media - success', () => {
   }
 
   const props = {
+    captions: [],
     mediaUrl: '/some/url'
   }
 

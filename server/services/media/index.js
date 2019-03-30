@@ -47,7 +47,28 @@ module.exports = function(fastify, opts, next) {
       'episode',
       request.raw.originalUrl
     ).then(shows => {
-      reply.send({shows})
+      const aggregateEpisodesWithSubtitles = shows.reduce(
+        (aggregated, show) => {
+          if (path.extname(show.episode) === '.vtt') {
+            const matchingShow = aggregated.find(({name}) => {
+              const nameWithoutExtension = name.replace(path.extname(name), '')
+
+              return show.name.startsWith(nameWithoutExtension)
+            })
+
+            if (matchingShow) {
+              matchingShow.captions.push(show.episode)
+            }
+          } else {
+            aggregated.push(Object.assign({captions: []}, show))
+          }
+
+          return aggregated
+        },
+        []
+      )
+
+      reply.send({shows: aggregateEpisodesWithSubtitles})
     })
   })
 

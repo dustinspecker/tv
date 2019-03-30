@@ -7,7 +7,7 @@ const test = require('ava')
 
 const tvMediaDirectory = '/media'
 
-const startMedia = (t, findInDirectoryAssertionsFn) => {
+const startMedia = (t, findInDirectoryAssertionsFn, directoryFindings = []) => {
   const mediaService = proxyquire('.', {
     fs: {
       createReadStream(path, {start, end} = {}) {
@@ -23,7 +23,7 @@ const startMedia = (t, findInDirectoryAssertionsFn) => {
       findInDirectory(dirPath, matcher, key, base) {
         findInDirectoryAssertionsFn(dirPath, matcher, key, base)
 
-        return Promise.resolve([])
+        return Promise.resolve(directoryFindings)
       }
     }
   })
@@ -99,7 +99,22 @@ test('GET /tv/:show/:season returns list of episodes', t => {
     t.is(base, '/tv/Some%20Show/Season%201')
   }
 
-  startMedia(t, findInDirectoryAssertionsFn)
+  const directoryFindings = [
+    {
+      name: 'episode 1.mp4',
+      episode: '/tv/Some%20Show/Season%201/Episode%201.mp4'
+    },
+    {
+      name: 'episode 1.vtt',
+      episode: '/tv/Some%20Show/Season%201/Episode%201.vtt'
+    },
+    {
+      name: 'episode 2.mp4',
+      episode: '/tv/Some%20Show/Season%201/Episode%202.mp4'
+    }
+  ]
+
+  startMedia(t, findInDirectoryAssertionsFn, directoryFindings)
 
   return t.context
     .inject({
@@ -107,7 +122,19 @@ test('GET /tv/:show/:season returns list of episodes', t => {
       url: '/tv/Some%20Show/Season%201'
     })
     .then(response => {
-      t.deepEqual(JSON.parse(response.body), {shows: []})
+      const expected = [
+        {
+          name: 'episode 1.mp4',
+          episode: '/tv/Some%20Show/Season%201/Episode%201.mp4',
+          captions: ['/tv/Some%20Show/Season%201/Episode%201.vtt']
+        },
+        {
+          name: 'episode 2.mp4',
+          episode: '/tv/Some%20Show/Season%201/Episode%202.mp4',
+          captions: []
+        }
+      ]
+      t.deepEqual(JSON.parse(response.body), {shows: expected})
     })
 })
 
