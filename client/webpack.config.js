@@ -1,5 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ip = require('ip')
 const template = require('html-webpack-template')
+
+const localIp = ip.address()
 
 module.exports = {
   devServer: {
@@ -9,10 +12,18 @@ module.exports = {
     },
     historyApiFallback: true,
     host: '0.0.0.0',
+    https: true,
     open: true,
+    before(app) {
+      app.get('/config', (req, res) => {
+        res.json({
+          apiServer: `http://${localIp}:3000`
+        })
+      })
+    },
     proxy: {
-      '/tv': 'http://localhost:3000',
-      '/videos': 'http://localhost:3000'
+      '/tv': `http://${localIp}:3000`,
+      '/videos': `http://${localIp}:3000`
     },
     useLocalIp: true
   },

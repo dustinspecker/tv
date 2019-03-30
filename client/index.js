@@ -1,5 +1,6 @@
 import AppBar from '@material-ui/core/AppBar'
 import CastLauncher from './components/cast-launcher/'
+import ConfigContext from './config-context'
 import EpisodeList from './components/episode-list'
 import MediaList from './components/media-list/'
 import PlayerControls from './components/player-controls/'
@@ -13,6 +14,7 @@ import Typography from '@material-ui/core/Typography'
 
 class App extends React.Component {
   state = {
+    config: null,
     currentTime: 0,
     duration: 0,
     isPaused: false,
@@ -23,6 +25,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    fetch('/config')
+      .then(response => response.json())
+      .then(config => {
+        this.setState({config})
+      })
+
     fetch('/videos')
       .then(response => response.json())
       .then(({shows}) => {
@@ -89,19 +97,25 @@ class App extends React.Component {
               </Typography>
             </Toolbar>
           </AppBar>
-          <CastLauncher showLauncher={!this.state.showMedia} />
-          <Route component={mediaList} exact path='/' />
-          <Route component={SeasonList} exact path='/show/:showname' />
-          <Route component={EpisodeList} path='/show/:showname/:season' />
-          <PlayerControls
-            currentTime={this.state.currentTime}
-            duration={this.state.duration}
-            isPaused={this.state.isPaused}
-            playOrPause={() => this.controller.playOrPause()}
-            seek={seek}
-            showControls={this.state.showControls}
-            stop={stop}
-          />
+          {this.state.config ? (
+            <ConfigContext.Provider value={this.state.config}>
+              <CastLauncher showLauncher={!this.state.showMedia} />
+              <Route component={mediaList} exact path='/' />
+              <Route component={SeasonList} exact path='/show/:showname' />
+              <Route component={EpisodeList} path='/show/:showname/:season' />
+              <PlayerControls
+                currentTime={this.state.currentTime}
+                duration={this.state.duration}
+                isPaused={this.state.isPaused}
+                playOrPause={() => this.controller.playOrPause()}
+                seek={seek}
+                showControls={this.state.showControls}
+                stop={stop}
+              />
+            </ConfigContext.Provider>
+          ) : (
+            <p>Loading...</p>
+          )}
         </>
       </Router>
     )

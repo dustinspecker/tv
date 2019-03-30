@@ -1,12 +1,15 @@
+import ConfigContext from '../../config-context'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import React from 'react'
 
 export default class extends React.Component {
+  static contextType = ConfigContext
+
   handleClick = () => {
     const castSession = cast.framework.CastContext.getInstance().getCurrentSession()
     const mediaInfo = new chrome.cast.media.MediaInfo(
-      `http://${location.host}${this.props.mediaUrl}`,
+      `${this.context.apiServer}${this.props.mediaUrl}`,
       'video/mp4'
     )
     const request = new chrome.cast.media.LoadRequest(mediaInfo)

@@ -63,6 +63,7 @@ The environment variables must be defined in the same shell running Server or in
 ## Run Client Proxy Server
 1. `npm start`
 1. Default browser will open to local IP. Take note of this local IP if wanting to connect from another device.
+1. You will have to allow using the untrusted cert
 
 ## docker-compose
 
@@ -71,9 +72,12 @@ Instead of manually building and running these servers, `docker-compose` may be 
 1. Install docker daemon and make sure it's running
 1. Clone this project
 1. Navigate to top level of this project
+1. Run `./create-ssl.sh` to create self-signed certificates
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
+1. `export SERVER_HOST=http://{YOUR_LOCAL_IP}:3000`
 1. `docker compose up --build`
-1. Open browser and navigate to local IP address on port 8080
+1. Open browser and navigate to local IP address on port 443 (https)
+1. You will have to allow using the untrusted cert
 
 ## Usage
 

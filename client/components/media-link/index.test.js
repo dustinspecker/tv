@@ -1,3 +1,4 @@
+import ConfigContext from '../../config-context'
 import ListItem from '@material-ui/core/ListItem'
 import MediaLink from '.'
 import React from 'react'
@@ -44,14 +45,18 @@ test('MediaLink click casts media - success', () => {
     mediaUrl: '/some/url'
   }
 
-  const element = <MediaLink {...props} />
+  const element = (
+    <ConfigContext.Provider value={{apiServer: 'http://server:port'}}>
+      <MediaLink {...props} />
+    </ConfigContext.Provider>
+  )
 
   const component = renderer.create(element)
   const button = component.root.findByType(ListItem)
   button.props.onClick()
 
   expect(MediaInfo.mock.calls[0]).toEqual([
-    'http://localhost/some/url',
+    'http://server:port/some/url',
     'video/mp4'
   ])
 
@@ -94,7 +99,11 @@ test('MediaLink click casts media - error', () => {
     mediaUrl: '/some/url'
   }
 
-  const element = <MediaLink {...props} />
+  const element = (
+    <ConfigContext.Provider value={{apiServer: 'http://server:port'}}>
+      <MediaLink {...props} />
+    </ConfigContext.Provider>
+  )
 
   const component = renderer.create(element)
   const button = component.root.findByType(ListItem)
