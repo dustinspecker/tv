@@ -25,7 +25,8 @@
     "fastify-autoload": "^0.6.0",
     "fastify-cli": "^1.0.0",
     "fastify-cors": "^2.1.2",
-    "fastify-env": "^0.6.1"
+    "fastify-env": "^0.6.1",
+    "mime-types": "^2.1.22"
   },
   "devDependencies": {
     "ava": "^1.0.1",

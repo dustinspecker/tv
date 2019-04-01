@@ -144,7 +144,7 @@ test('GET /tv/:show/:season/:episode returns read stream if range header missing
   return t.context
     .inject({
       method: 'GET',
-      url: '/tv/Some%20Show/Season%201/Episode%201'
+      url: '/tv/Some%20Show/Season%201/Episode%201.mp4'
     })
     .then(response => {
       t.is(response.headers['content-length'], 4)
@@ -159,7 +159,7 @@ test('GET /tv/:show/:season/:episode returns stream for range with only start', 
   return t.context
     .inject({
       method: 'GET',
-      url: '/tv/Some%20Show/Season%201/Episode%201',
+      url: '/tv/Some%20Show/Season%201/Episode%201.mp4',
       headers: {
         range: 'bytes=1'
       }
@@ -180,7 +180,7 @@ test('GET /tv/:show/:season/:episode returns stream for full range', t => {
   return t.context
     .inject({
       method: 'GET',
-      url: '/tv/Some%20Show/Season%201/Episode%201',
+      url: '/tv/Some%20Show/Season%201/Episode%201.webm',
       headers: {
         range: 'bytes=1-4'
       }
@@ -190,7 +190,7 @@ test('GET /tv/:show/:season/:episode returns stream for full range', t => {
       t.is(response.headers['content-range'], 'bytes 1-4/4')
       t.is(response.headers['accept-ranges'], 'bytes')
       t.is(response.headers['content-length'], 4)
-      t.is(response.headers['content-type'], 'video/mp4')
+      t.is(response.headers['content-type'], 'video/webm')
       t.is(response.body, 'ile')
     })
 })

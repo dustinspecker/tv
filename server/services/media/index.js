@@ -2,6 +2,7 @@
 
 const {findInDirectory} = require('../../utils/file')
 const fs = require('fs')
+const mimeTypes = require('mime-types')
 const path = require('path')
 
 module.exports = function(fastify, opts, next) {
@@ -83,6 +84,8 @@ module.exports = function(fastify, opts, next) {
 
     const range = request.headers.range
 
+    const contentType = mimeTypes.contentType(path.extname(episodePath))
+
     if (range) {
       fs.promises.stat(episodePath).then(stat => {
         const parts = range.replace(/bytes=/, '').split('-')
@@ -94,7 +97,7 @@ module.exports = function(fastify, opts, next) {
           .header('Content-Range', `bytes ${start}-${end}/${stat.size}`)
           .header('Accept-Ranges', 'bytes')
           .header('Content-Length', chunksize)
-          .header('Content-Type', 'video/mp4')
+          .header('Content-Type', contentType)
           .code(206)
           .send(fs.createReadStream(episodePath, {start, end}))
       })
@@ -102,7 +105,7 @@ module.exports = function(fastify, opts, next) {
       fs.promises.stat(episodePath).then(stat => {
         reply
           .header('Content-Length', stat.size)
-          .header('Content-Type', 'video/mp4')
+          .header('Content-Type', contentType)
           .send(fs.createReadStream(episodePath))
       })
     }
