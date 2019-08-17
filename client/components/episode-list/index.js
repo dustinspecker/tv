@@ -11,9 +11,7 @@ export default class extends React.Component {
 
   componentDidMount() {
     fetch(
-      `/tv/${this.props.match.params.showname}/${
-        this.props.match.params.season
-      }`
+      `/tv/${this.props.match.params.showname}/${this.props.match.params.season}`
     )
       .then(response => response.json())
       .then(({shows}) => {
