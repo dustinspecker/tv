@@ -61,6 +61,7 @@ The environment variables must be defined in the same shell running Server or in
 1. `npm run build`
 
 ## Run Client Proxy Server
+1. `export TV_SERVER=http://LOCAL_IP_HERE:3000`
 1. `npm start`
 1. Default browser will open to local IP. Take note of this local IP if wanting to connect from another device.
 1. You will have to allow using the untrusted cert

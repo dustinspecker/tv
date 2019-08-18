@@ -1,8 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ip = require('ip')
 const template = require('html-webpack-template')
 
-const localIp = ip.address()
+const {SERVER_HOST} = process.env
 
 module.exports = {
   devServer: {
@@ -17,13 +16,13 @@ module.exports = {
     before(app) {
       app.get('/config', (req, res) => {
         res.json({
-          apiServer: `http://${localIp}:3000`
+          apiServer: SERVER_HOST
         })
       })
     },
     proxy: {
-      '/tv': `http://${localIp}:3000`,
-      '/videos': `http://${localIp}:3000`
+      '/tv': SERVER_HOST,
+      '/videos': SERVER_HOST
     },
     useLocalIp: true
   },
