@@ -27,7 +27,7 @@ module.exports = {
     },
     useLocalIp: true
   },
-  entry: './index.js',
+  entry: './src/index.js',
   mode: 'development',
   module: {
     rules: [
