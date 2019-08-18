@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "fastify start -l info -P -a '0.0.0.0' index.js",
+    "dev": "fastify start -l info -P -a '0.0.0.0' src/index.js",
     "prettier": "prettier --write './**/*.js'",
-    "start": "fastify start -l info -a '0.0.0.0' index.js",
+    "start": "fastify start -l info -a '0.0.0.0' src/index.js",
     "pretest": "prettier --list-different './**/*.js'",
     "test": "ava"
   },
