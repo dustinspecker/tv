@@ -57,9 +57,8 @@ The environment variables must be defined in the same shell running Server or in
 ## Build Client
 
 1. `cd client`
-1. `npm i -g webpack-cli`
 1. `npm i`
-1. `webpack-cli`
+1. `npm run build`
 
 ## Run Client Proxy Server
 1. `npm start`
