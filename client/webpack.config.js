@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const template = require('html-webpack-template')
 
-const {INSECURE_SERVER_HOST} = process.env
+const {INSECURE_SERVER_HOST, SECURE_SERVER_HOST} = process.env
 
 module.exports = {
   devServer: {
@@ -16,7 +16,8 @@ module.exports = {
     before(app) {
       app.get('/config', (req, res) => {
         res.json({
-          insecureApiServer: INSECURE_SERVER_HOST
+          insecureApiServer: INSECURE_SERVER_HOST,
+          secureApiServer: SECURE_SERVER_HOST
         })
       })
     },

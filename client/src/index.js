@@ -29,12 +29,12 @@ class App extends React.Component {
       .then(response => response.json())
       .then(config => {
         this.setState({config})
-      })
 
-    fetch('/videos')
-      .then(response => response.json())
-      .then(({shows}) => {
-        this.setState({shows})
+        return fetch(`${config.secureApiServer}/videos`)
+          .then(response => response.json())
+          .then(({shows}) => {
+            this.setState({shows})
+          })
       })
 
     const player = new cast.framework.RemotePlayer()

@@ -1,3 +1,4 @@
+import ConfigContext from '../../config-context'
 import EpisodeList from '.'
 import React from 'react'
 import renderer from 'react-test-renderer'
@@ -21,7 +22,11 @@ test('EpisodeList displays list of episodes', () => {
     }
   }
 
-  const element = <EpisodeList {...props} />
+  const element = (
+    <ConfigContext.Provider value={{secureApiServer: 'SECURE_SERVER'}}>
+      <EpisodeList {...props} />
+    </ConfigContext.Provider>
+  )
 
   const component = renderer.create(element)
   expect(component.toJSON()).toMatchSnapshot()
@@ -30,6 +35,8 @@ test('EpisodeList displays list of episodes', () => {
     component.update(element)
     expect(component.toJSON()).toMatchSnapshot()
     expect(fetch.mock.calls.length).toEqual(1)
-    expect(fetch.mock.calls[0][0]).toEqual('/tv/showname/seasonname')
+    expect(fetch.mock.calls[0][0]).toEqual(
+      'SECURE_SERVER/tv/showname/seasonname'
+    )
   })
 })

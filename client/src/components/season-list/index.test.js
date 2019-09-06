@@ -1,3 +1,4 @@
+import ConfigContext from '../../config-context'
 import SeasonList from '.'
 import React from 'react'
 import renderer from 'react-test-renderer'
@@ -22,9 +23,11 @@ test('SeasonList displays list of seasons', () => {
   }
 
   const element = (
-    <StaticRouter context={{}}>
-      <SeasonList {...props} />
-    </StaticRouter>
+    <ConfigContext.Provider value={{secureApiServer: 'SECURE_SERVER'}}>
+      <StaticRouter context={{}}>
+        <SeasonList {...props} />
+      </StaticRouter>
+    </ConfigContext.Provider>
   )
 
   const component = renderer.create(element)
@@ -34,6 +37,6 @@ test('SeasonList displays list of seasons', () => {
     component.update(element)
     expect(component.toJSON()).toMatchSnapshot()
     expect(fetch.mock.calls.length).toEqual(1)
-    expect(fetch.mock.calls[0][0]).toEqual('/tv/showname')
+    expect(fetch.mock.calls[0][0]).toEqual('SECURE_SERVER/tv/showname')
   })
 })
