@@ -77,7 +77,7 @@ Instead of manually building and running these servers, `docker-compose` may be 
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
 1. `export SERVER_HOST=http://{YOUR_LOCAL_IP}:3000`
 1. `docker-compose up --build`
-1. Open browser and navigate to local IP address on port 443 (https)
+1. Open browser and navigate to local IP address on port 443 (HTTPS)
 1. You will have to allow using the untrusted cert
 
 ## Usage
