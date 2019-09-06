@@ -19,3 +19,16 @@ services:
       - "3000:3000"
     volumes:
       - ${TV_MEDIA_DIRECTORY}:/movies:ro
+  https-server:
+    image: fsouza/docker-ssl-proxy
+    depends_on:
+      - server
+    ports:
+      - "3443:3443"
+    environment:
+      TARGET_HOST: server
+      TARGET_PORT: 3000
+      SSL_PORT: 3443
+    volumes:
+      - ./ssl/nginx.crt:/etc/nginx/certs/cert.pem
+      - ./ssl/nginx.key:/etc/nginx/certs/key.pem

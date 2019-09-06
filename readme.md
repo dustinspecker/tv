@@ -40,7 +40,8 @@
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
     - Read [Environment Variables](#environment-variables) for more information
 1. `npm i`
-1. `npm start`
+1. `npm start` to start the server running on HTTP
+1. `npm run https-reverse-proxy` to start the HTTPS reverse proxy pointing at the HTTP server from above
 
 ## Environment Variables
 
