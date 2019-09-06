@@ -57,7 +57,7 @@ test('MediaLink click casts media - success', () => {
   }
 
   const element = (
-    <ConfigContext.Provider value={{apiServer: 'http://server:port'}}>
+    <ConfigContext.Provider value={{insecureApiServer: 'http://server:port'}}>
       <MediaLink {...props} />
     </ConfigContext.Provider>
   )
@@ -112,7 +112,7 @@ test('MediaLink click casts media - error', () => {
   }
 
   const element = (
-    <ConfigContext.Provider value={{apiServer: 'http://server:port'}}>
+    <ConfigContext.Provider value={{insecureApiServer: 'http://server:port'}}>
       <MediaLink {...props} />
     </ConfigContext.Provider>
   )

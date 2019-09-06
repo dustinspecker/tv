@@ -62,7 +62,7 @@ The environment variables must be defined in the same shell running Server or in
 1. `npm run build`
 
 ## Run Client Proxy Server
-1. `export TV_SERVER=http://LOCAL_IP_HERE:3000`
+1. `export INSECURE_SERVER=http://LOCAL_IP_HERE:3000`
 1. `npm start`
 1. Default browser will open to local IP. Take note of this local IP if wanting to connect from another device.
 1. You will have to allow using the untrusted cert
@@ -76,7 +76,7 @@ Instead of manually building and running these servers, `docker-compose` may be 
 1. Navigate to top level of this project
 1. Run `./create-ssl.sh` to create self-signed certificates
 1. `export TV_MEDIA_DIRECTORY={YOUR MEDIA PATH HERE}`
-1. `export SERVER_HOST=http://{YOUR_LOCAL_IP}:3000`
+1. `export INSECURE_SERVER_HOST=http://{YOUR_LOCAL_IP}:3000`
 1. `docker-compose up --build`
 1. Open browser and navigate to local IP address on port 443 (HTTPS)
 1. You will have to allow using the untrusted cert

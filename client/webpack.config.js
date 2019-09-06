@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const template = require('html-webpack-template')
 
-const {SERVER_HOST} = process.env
+const {INSECURE_SERVER_HOST} = process.env
 
 module.exports = {
   devServer: {
@@ -16,13 +16,13 @@ module.exports = {
     before(app) {
       app.get('/config', (req, res) => {
         res.json({
-          apiServer: SERVER_HOST
+          insecureApiServer: INSECURE_SERVER_HOST
         })
       })
     },
     proxy: {
-      '/tv': SERVER_HOST,
-      '/videos': SERVER_HOST
+      '/tv': INSECURE_SERVER,
+      '/videos': INSECURE_SERVER
     },
     useLocalIp: true
   },

@@ -4,7 +4,7 @@ services:
   client:
     build: ./client
     environment:
-      SERVER_HOST: ${SERVER_HOST}
+      INSECURE_SERVER_HOST: ${INSECURE_SERVER_HOST}
     ports:
       - "80:80"
       - "443:443"

@@ -9,7 +9,7 @@ export default class extends React.Component {
   handleClick = () => {
     const castSession = cast.framework.CastContext.getInstance().getCurrentSession()
     const mediaInfo = new chrome.cast.media.MediaInfo(
-      `${this.context.apiServer}${this.props.mediaUrl}`,
+      `${this.context.insecureApiServer}${this.props.mediaUrl}`,
       'video/mp4'
     )
 
@@ -18,7 +18,7 @@ export default class extends React.Component {
         1,
         chrome.cast.media.TrackType.TEXT
       )
-      subtitle.trackContentId = `${this.context.apiServer}${
+      subtitle.trackContentId = `${this.context.insecureApiServer}${
         this.props.captions[0]
       }`
       subtitle.subtype = chrome.cast.media.TextTrackType.SUBTITLES
