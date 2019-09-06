@@ -32,7 +32,7 @@
 1. Clone this project
 1. Run Server
 1. Build Client
-1. Run Client Proxy Server
+1. Run Client Server
 
 ## Run Server
 
@@ -61,7 +61,7 @@ The environment variables must be defined in the same shell running Server or in
 1. `npm i`
 1. `npm run build`
 
-## Run Client Proxy Server
+## Run Client Server
 1. `export INSECURE_SERVER=http://LOCAL_IP_HERE:3000`
 1. `export SECURE_SERVER=https://LOCAL_IP_HERE:3443`
 1. `npm start`

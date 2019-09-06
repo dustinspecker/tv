@@ -21,10 +21,6 @@ module.exports = {
         })
       })
     },
-    proxy: {
-      '/tv': INSECURE_SERVER,
-      '/videos': INSECURE_SERVER
-    },
     useLocalIp: true
   },
   entry: './src/index.js',
