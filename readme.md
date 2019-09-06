@@ -28,7 +28,7 @@
     │   └── season 2
     └── show two/
     ```
-    The show names, season names, and episode names are arbitrary for now. TV just expects to see a media directory containing directories of TV shows. Those TV show directories should contain season directories. Those season directory should contain episode videos.
+    The show names, season names, and episode names are arbitrary for now. TV just expects to see a media directory containing directories of TV shows. Those TV show directories should contain season directories. Those season directories should contain episode videos.
 1. Clone this project
 1. Run Server
 1. Build Client
